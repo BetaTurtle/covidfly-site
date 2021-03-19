@@ -11,7 +11,8 @@ class ResultPage extends React.Component {
       script.setAttribute(
         'data-limit', "50");
 
-    document.body.appendChild(script);
+    // document.body.appendChild(script);
+    this.instance.appendChild(script);
   }
 
 
@@ -24,6 +25,7 @@ class ResultPage extends React.Component {
       <><div>
         <h3>Info loading... {sd}</h3>
       </div>
+      <div ref={el => (this.instance = el)} />
       </>
     );
   }
