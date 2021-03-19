@@ -1,19 +1,33 @@
+import React from 'react';
 
-import {
-    useParams,
-  } from 'react-router-dom';
-  
-export default function ResultPage() {
+class ResultPage extends React.Component {
 
-    let { sd } = useParams();
+  componentDidMount() {
+    var script = document.createElement("script");
+    script.src = "https://comments.app/js/widget.js?3";
+    script.async = true;
+    script.setAttribute(
+      'data-comments-app-website', "Jy7bHnpa");
+      script.setAttribute(
+        'data-limit', "50");
+
+    document.body.appendChild(script);
+  }
+
+
+  render() {
+    const sd = this.props.match.params.sd;
 
     // do sanity check before proceeding
-  
+
     return (
       <><div>
         <h3>Info loading... {sd}</h3>
       </div>
-      <script async src="https://comments.app/js/widget.js?3" data-comments-app-website="Jy7bHnpa" data-limit="50"></script>
       </>
     );
   }
+}
+
+
+export default ResultPage;
